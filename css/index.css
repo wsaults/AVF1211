@@ -4,9 +4,129 @@ Name: William Saults
 Term: 1211
 */
 
+@media only screen and (min-width: 769px) {
+	h1 {
+		font-size: 50px;
+	}
+
+	h2 {
+		font-size: 30px;
+	}
+	
+	li {
+		font-size: 20px;
+	}
+	
+	#content {
+		width: 1024px;
+	}
+	
+	#footer {
+		font-size: 12px;
+		text-align: center;
+		position:absolute;
+	   	bottom:0;
+	   	width:768px;
+	}
+	
+	#features {
+		width: 250px;
+		float: left;
+	}
+	
+	#apis {
+		width: 250px;
+		float: left;
+	}
+	
+	#research {
+		width: 250px;
+		float: left;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	h1 {
+		font-size: 50px;
+	}
+
+	h2 {
+		font-size: 40px;
+	}
+	
+	li {
+		font-size: 30px;
+	}
+	
+	#content {
+		width: 768px;
+	}
+	
+	#footer {
+		font-size: 12px;
+		text-align: center;
+		position:absolute;
+	   	bottom:0;
+	   	width:768px;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	h1 {
+		font-size: 20px;
+	}
+
+	h2 {
+		font-size: 15px;
+	}
+	
+	li {
+		font-size: 12px;
+	}
+	
+	#content {
+		width: 480px;
+	}
+	
+	#footer {
+		font-size: 12px;
+		text-align: center;
+		position:absolute;
+	   	bottom:0;
+	   	width:320px;
+	}
+}
+
+@media only screen and (max-width: 320px) {
+	h1 {
+		font-size: 20px;
+	}
+
+	h2 {
+		font-size: 15px;
+	}
+	
+	li {
+		font-size: 12px;
+	}
+	
+	#content {
+		width: 480px;
+	}
+	
+	#footer {
+		font-size: 12px;
+		text-align: center;
+		position:absolute;
+	   	bottom:0;
+	   	width:320px;
+	}
+}
+
 
 /* iPad landscape */
-@media screen and (max-width : 1024px) {
+/*
+@media screen and (min-width : 1024px) {
 	h1 {
 		text-align: left;
 		font-size: 80px;
@@ -47,9 +167,11 @@ Term: 1211
 		width: 250px;
 	}
 }
+*/
 
 /* iPad portrait */
-@media screen and (max-width : 768px) {
+/*
+@media screen and (min-width : 768px) {
 	h1 {
 		text-align: left;
 		font-size: 20px;
@@ -90,10 +212,12 @@ Term: 1211
 		width: 250px;
 	}
 }
+*/
 
 
 /* Smartphones landscape */
-@media screen and (min-device-width : 321px) and (max-device-width : 800px) {
+/*
+@media screen and (min-device-width : 321px) and (max-device-width : 765px) {
 	h1 {
 		text-align: left;
 		font-size: 5px;
@@ -134,8 +258,10 @@ Term: 1211
 		width: 250px;
 	}
 }
+*/
 
 /* Smartphones portrait */
+/*
 @media screen and (max-device-width : 320px) {
 	h1 {
 		text-align: left;
@@ -177,6 +303,7 @@ Term: 1211
 		width: 250px;
 	}
 }
+*/
 
 
 /* All Platforms */
@@ -193,5 +320,13 @@ Term: 1211
 	
 	body {
     	font-family: "Raleway", Georgia, serif;
+	}
+	
+	h1 {
+		text-align: left;
+	}
+	
+	li {
+		list-style: none;
 	}
 }
