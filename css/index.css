@@ -44,6 +44,8 @@ Term: 1211
 		float: left;
 	}
 	
+	/* Hide smartphone elements */
+	#titlebar {display: none;}
 	#toolbar {display: none;}
 }
 
@@ -72,13 +74,21 @@ Term: 1211
 	   	width:768px;
 	}
 	
+	/* Hide smartphone elements */
+	#titlebar {display: none;}
 	#toolbar {display: none;}
 }
 
 @media only screen and (max-width: 480px) {
+	body {
+    	background-image:url("textures/dark_dotted.png");
+	}
+
 	h1 {
-		margin-top: 45px;
+		color: white;
 		font-size: 18pt;
+		
+		display: none; /* Remove this to display in app */
 	}
 
 	h2 {
@@ -89,8 +99,34 @@ Term: 1211
 		font-size: 12pt;
 	}
 	
-	#content {
+	#header {
+		margin-top: 45px;
+	}
+	
+	#content_mobile {
 		width: 100%;
+		height: 100%;
+	}
+	
+	#content_mobile ul {
+		margin: 5px 5px;
+        padding:0;
+        background: gray;
+	}
+	
+	#content_mobile li {
+		color: white;
+		height: 60px;
+		border: solid black 1px;
+	}
+	
+	#content_mobile li a {
+		text-decoration: none;
+		display: block;
+		width: 100%;
+		height: 100%;
+		padding-top: 10px;
+		padding-left: 5px;
 	}
 	
 	#footer {
@@ -108,7 +144,7 @@ Term: 1211
 		background: black;
 		height: 40px;
 		width: 100%;
-		border-top: solid gray 1px;
+		border-bottom: solid silver 1px;
 		left: 0;   /* Keeps the toolbar fastened to the left */
 		top: 0; /* Keeps the toolbar fasted to the top */
 		position: fixed;
@@ -120,7 +156,7 @@ Term: 1211
 		background: black;
 		height: 60px;
 		width: 100%;
-		border-top: solid gray 1px;
+		border-top: solid silver 1px;
 		left: 0;   /* Keeps the toolbar fastened to the left */
 		bottom: 0; /* Keeps the toolbar fasted to the bottom */
 		position: fixed;
@@ -154,13 +190,13 @@ Term: 1211
 		color: aqua;
 		text-decoration: none;
 	}
+	
+	/* Hide tablet/desktop elements */
+	#content {display: none;}
 }
 
 @media only screen and (max-width: 320px) {
 }
-
-
-
 
 
 /* All Platforms */
