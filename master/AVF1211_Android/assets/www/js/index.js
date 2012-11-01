@@ -4,7 +4,6 @@
 
 // Wait until the DOM is ready
 $(document).ready(function() {
-   	console.log("web ready");
 });
 
 // Device
@@ -129,4 +128,19 @@ function onAccelerometerSuccess(acceleration) {
         + 'Z: ' + acceleration.z + '\n'
         + 'Timestamp: ' + acceleration.timestamp + '\n'
     );
+}
+
+/* Video */
+function toggleMobileVideo() {
+	if (!$('#research_mobile').hasClass("hidden")) {
+		toggleMobileResearch();
+	}
+	$('#video_mobile').toggleClass("hidden");
+}
+
+function toggleMobileResearch() {
+	if (!$('#video_mobile').hasClass("hidden")) {
+		toggleMobileVideo();
+	}
+	$('#research_mobile').toggleClass("hidden");
 }

@@ -52,37 +52,142 @@ Term: 1211
 	#titlebar {display: none;}
 	#toolbar {display: none;}
 	#content_mobile {display: none;}
+	#content_tablet {display: none;}
+	#features_tablet {display: none;}
 }
 
 /* Tablet Size */
 @media only screen and (max-width: 768px) {
+	body {
+    	background-image:url("textures/dark_dotted.png");
+	}
+
 	h1 {
-		font-size: 50px;
+		color: white;
+		font-size: 18pt;
+		
+		display: none; /* Remove this to display in app */
 	}
 
 	h2 {
-		font-size: 40px;
+		font-size: 15pt;
 	}
 	
 	li {
-		font-size: 30px;
+		font-size: 12pt;
 	}
 	
-	#content {
-		width: 768px;
+	#header {
+		margin-top: 45px;
 	}
 	
-	#footer {
-		font-size: 12px;
+	/* Titlebar */
+	#titlebar {
+		display: block;
+		font-family: "KnewaveOutlineRegular", Georgia, serif;
+		font-size: 20px;
+		background: black;
+		height: 40px;
+		width: 100%;
+		border-bottom: solid silver 1px;
+		left: 0;   /* Keeps the toolbar fastened to the left */
+		top: 0; /* Keeps the toolbar fasted to the top */
+		position: fixed;
+	}
+	
+	#titlebar li {
+		display: inline;
+		float: left;
+		width: 100%;
+		height: 40px;
 		text-align: center;
-		position:absolute;
-	   	bottom:0;
-	   	width:768px;
+		padding: 15px 0;
+		color: aqua;
+		font-size: 14px;
+	}
+	
+	#titlebar ul {
+		margin:0;
+        padding:0;
+        width: 100%;
+	}
+	
+	/* Content */
+	#content_tablet {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+	
+	#content_tablet ul {
+		margin: 5px 5px;
+        padding:0;
+        background: gray;
+	}
+	
+	#content_tablet li {
+		height: 60px;
+		border: solid black 1px;
+	}
+	
+	#content_tablet li a {
+		text-decoration: none;
+		font-weight: bold;
+		display: block;
+		width: 100%;
+		height: 100%;
+		padding-top: 10px;
+		padding-left: 5px;
+	}
+	
+	#video_mobile {
+		margin: 0 auto; 
+		width: 320px;
+	}
+	
+	#research_mobile {
+		margin: 0 auto; 
+		width: 600px;
+		color: aqua;
+		border: solid gray 1px;
+		padding: 10px; 
+	}
+	
+	#research_mobile ul li {
+		font-size: 13px;
+		list-style-type: circle;
+	}
+	
+	/* Features */
+	#features_tablet {
+		display: block;
+		width: 100%;
+	}
+	
+	#features_tablet ul {
+		margin: 20px 20px;
+        padding: 20px 20px;
+	}
+	
+	#features_tablet li {
+		text-align: center;
+		height: 44px;
+		padding: 20px 0;
+	}
+	
+	#features_tablet li a {
+		text-decoration: none;
+		font-weight: bold;
+		display: block;
+		width: 100%;
+		height: 100%;
+		padding-top: 10px;
+		padding-left: 5px;
 	}
 	
 	/* Hide smartphone elements */
-	#titlebar {display: none;}
 	#toolbar {display: none;}
+	#content {display: none;}
 	#content_mobile {display: none;}
 }
 
@@ -124,13 +229,13 @@ Term: 1211
 	}
 	
 	#content_mobile li {
-		color: white;
 		height: 60px;
 		border: solid black 1px;
 	}
 	
 	#content_mobile li a {
 		text-decoration: none;
+		font-weight: bold;
 		display: block;
 		width: 100%;
 		height: 100%;
@@ -138,12 +243,23 @@ Term: 1211
 		padding-left: 5px;
 	}
 	
-	#footer {
-		font-size: 12px;
-		text-align: center;
-		position:absolute;
-	   	bottom:0;
-	   	width:320px;
+	#video_mobile {
+		margin: 0 auto; 
+		width: 320px;
+	}
+	
+	#research_mobile {
+		margin: 0 auto 50px auto;
+		width: 300px;
+		color: aqua;
+		border: solid gray 1px;
+		padding: 5px;
+		font-size: 14px; 
+	}
+	
+	#research_mobile ul li {
+		font-size: 13px;
+		list-style-type: circle;
 	}
 	
 	#titlebar {
@@ -157,6 +273,17 @@ Term: 1211
 		left: 0;   /* Keeps the toolbar fastened to the left */
 		top: 0; /* Keeps the toolbar fasted to the top */
 		position: fixed;
+	}
+	
+	#titlebar li {
+		display: inline;
+		float: left;
+		width: 100%;
+		height: 40px;
+		text-align: center;
+		padding: 15px 0;
+		color: aqua;
+		font-size: 14px;
 	}
 	
 	#toolbar {
@@ -177,15 +304,6 @@ Term: 1211
         width: 100%;
 	}
 	
-	#titlebar li {
-		display: inline;
-		float: left;
-		width: 100%;
-		height: 40px;
-		text-align: center;
-		padding: 15px 0;
-	}
-	
 	#toolbar li {
 		display: inline;
 		float: left;
@@ -195,19 +313,16 @@ Term: 1211
 		padding: 20px 0;
 	}
 	
-	#toolbar li a, #titlebar li a {
+	#toolbar li a {
 		color: aqua;
 		text-decoration: none;
 	}
 	
 	/* Hide tablet/desktop elements */
 	#content {display: none;}
+	#content_tablet {display: none;}
+	#features_tablet {display: none;} 
 }
-
-/* iPhone size */
-@media only screen and (max-width: 320px) {
-}
-
 
 /* All Platforms */
 @media all {
@@ -254,4 +369,6 @@ Term: 1211
 	li {
 		list-style: none;
 	}
+	
+	.hidden {display: none;}
 }
