@@ -51,14 +51,14 @@ function takePhoto() {
   // Take picture using device camera and retrieve image as base64-encoded string
   navigator.camera.getPicture(onCameraSuccess, onError, { 
   	quality: 75, 
-  	destinationType: destinationType.DATA_URL,
+  	destinationType: Camera.DestinationType.DATA_URL,
   	sourceType : Camera.PictureSourceType.CAMERA,
   	encodingType: Camera.EncodingType.JPEG 
   });
 }
 
 function onCameraSuccess(imageData) {
-	alert('imageData: ' + imageData);
+	alert('imageData success ');
 }
 
 /* Compass */
@@ -89,18 +89,15 @@ function onCompassSuccess(heading) {
 // Contact search criteria
 function searchContacts() {
 	var options = new ContactFindOptions();
-	options.filter="";          // empty search string returns all contacts
-	options.multiple=true;      // return multiple results
-	filter = ["displayName"];   // return contact.displayName field
+	options.filter = "";
+	options.multiple = true;
+	var fields = ["displayName"];
 	
-	// find contacts
-	navigator.contacts.find(filter, onContactSuccess, onError, options);
+	navigator.contacts.find(fields, onContactSuccess, onError, options);
 }
 
 function onContactSuccess(contacts) {
-    for (var i=0; i<contacts.length; i++) {
-        alert(contacts[i].displayName);
-    }
+    alert('Yay found ' + contacts.length + ' contacts!');
 };
 
 /* Geolocation */
@@ -122,7 +119,6 @@ function onGeoSuccess(position) {
 
 
 /* Accelerometer */
-
 function startAccelerometer() {
 	navigator.accelerometer.getCurrentAcceleration(onAccelerometerSuccess, onError);
 }
@@ -134,5 +130,3 @@ function onAccelerometerSuccess(acceleration) {
         + 'Timestamp: ' + acceleration.timestamp + '\n'
     );
 }
-
-

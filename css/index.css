@@ -4,7 +4,11 @@ Name: William Saults
 Term: 1211
 */
 
+/* Larger than 768 */
 @media only screen and (min-width: 769px) {
+	
+/* 	TODO: body centers horizontally */
+
 	h1 {
 		font-size: 50px;
 	}
@@ -47,8 +51,10 @@ Term: 1211
 	/* Hide smartphone elements */
 	#titlebar {display: none;}
 	#toolbar {display: none;}
+	#content_mobile {display: none;}
 }
 
+/* Tablet Size */
 @media only screen and (max-width: 768px) {
 	h1 {
 		font-size: 50px;
@@ -77,8 +83,10 @@ Term: 1211
 	/* Hide smartphone elements */
 	#titlebar {display: none;}
 	#toolbar {display: none;}
+	#content_mobile {display: none;}
 }
 
+/* Handheld size */
 @media only screen and (max-width: 480px) {
 	body {
     	background-image:url("textures/dark_dotted.png");
@@ -104,6 +112,7 @@ Term: 1211
 	}
 	
 	#content_mobile {
+		display: block;
 		width: 100%;
 		height: 100%;
 	}
@@ -195,6 +204,7 @@ Term: 1211
 	#content {display: none;}
 }
 
+/* iPhone size */
 @media only screen and (max-width: 320px) {
 }
 
@@ -212,15 +222,14 @@ Term: 1211
 	}
 	
 	@font-face {
-    font-family: 'KnewaveRegular';
-    src: url('webfonts/knewave-webfont.eot');
-    src: url('webfonts/knewave-webfont.eot?#iefix') format('embedded-opentype'),
-         url('webfonts/knewave-webfont.woff') format('woff'),
-         url('webfonts/knewave-webfont.ttf') format('truetype'),
-         url('webfonts/knewave-webfont.svg#KnewaveRegular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
+	    font-family: 'KnewaveRegular';
+	    src: url('webfonts/knewave-webfont.eot');
+	    src: url('webfonts/knewave-webfont.eot?#iefix') format('embedded-opentype'),
+	         url('webfonts/knewave-webfont.woff') format('woff'),
+	         url('webfonts/knewave-webfont.ttf') format('truetype'),
+	         url('webfonts/knewave-webfont.svg#KnewaveRegular') format('svg');
+	    font-weight: normal;
+	    font-style: normal;
 	}
 	
 	@font-face {
@@ -232,7 +241,6 @@ Term: 1211
 	         url('webfonts/knewave-outline-webfont.svg#KnewaveOutlineRegular') format('svg');
 	    font-weight: normal;
 	    font-style: normal;
-	
 	}
 	
 	body {
