@@ -105,14 +105,14 @@ function startGeo() {
 }
 
 function onGeoSuccess(position) {
-    alert('Lat: ' + position.coords.latitude + '\n' 
-        + 'Lon: ' + position.coords.longitude + '\n'
-        + 'Alt: ' + position.coords.altitude + '\n'
-        + 'Accuracy: ' + position.coords.accuracy + '\n'
-        + 'Alt Accuracy: ' + position.coords.altitudeAccuracy + '\n'
-        + 'Heading: ' + position.coords.heading + '\n'
-        + 'Speed: ' + position.coords.speed + '\n'
-        + 'Timestamp: ' + position.timestamp + '\n'
+    alert('Lat: ' + position.coords.latitude + '\n' +
+        'Lon: ' + position.coords.longitude + '\n' +
+        'Alt: ' + position.coords.altitude + '\n' +
+        'Accuracy: ' + position.coords.accuracy + '\n' +
+        'Alt Accuracy: ' + position.coords.altitudeAccuracy + '\n' +
+        'Heading: ' + position.coords.heading + '\n' +
+        'Speed: ' + position.coords.speed + '\n' +
+        'Timestamp: ' + position.timestamp + '\n'
     );
 }
 
@@ -123,10 +123,10 @@ function startAccelerometer() {
 }
 
 function onAccelerometerSuccess(acceleration) {
-    alert('X: ' + acceleration.x + '\n'
-        + 'Y: ' + acceleration.y + '\n'
-        + 'Z: ' + acceleration.z + '\n'
-        + 'Timestamp: ' + acceleration.timestamp + '\n'
+    alert('X: ' + acceleration.x + '\n' +
+        'Y: ' + acceleration.y + '\n' +
+        'Z: ' + acceleration.z + '\n' +
+        'Timestamp: ' + acceleration.timestamp + '\n'
     );
 }
 
