@@ -4,6 +4,20 @@
 
 // Wait until the DOM is ready
 $(document).ready(function() {
+/* 	twitterRequest("http://search.twitter.com/search.json?q=election&rpp=20&include_entities=true&result_type=mixed"); */
+	
+	twitterRequest("http://search.twitter.com/search.json?q=ios&rpp=20&include_entities=true&result_type=recent&geocode=37.781157,-122.398720,5mi");
+	
+/* 	twitterRequest("http://search.twitter.com/search.json?q=%40twitterapi%20-via"); */
+	
+/* 	twitterRequest("http://search.twitter.com/search.json?q=place%3A247f43d441defc03"); */
+
+	freebaseRequest("https://www.googleapis.com/freebase/v1/search?query=heroes&start=10&limit=20&indent=true");
+/* 	freebaseRequest("https://www.googleapis.com/freebase/v1/search?query=andy&start=10&limit=10&indent=true"); */
+/* 	freebaseRequest("https://www.googleapis.com/freebase/v1/search?query=will&start=10&limit=10&indent=true"); */
+
+
+	
 });
 
 // Device
@@ -18,6 +32,12 @@ function deviceReady() {
 	);
 	
     checkConnection();
+    applyEventListeners();
+}
+
+function applyEventListeners() {
+	$('.mobileResearch').click(toggleMobileResearch);
+	$('.mobileResearch').on("touchstart", toggleMobileResearch);
 }
 
 /* Generic Error Alert */
@@ -87,7 +107,7 @@ function onCompassSuccess(heading) {
 /* Contacts */
 // Contact search criteria
 function searchContacts() {
-	var options = new ContactFindOptions();
+var options = new ContactFindOptions();
 	options.filter = "";
 	options.multiple = true;
 	var fields = ["displayName"];
@@ -105,14 +125,14 @@ function startGeo() {
 }
 
 function onGeoSuccess(position) {
-    alert('Lat: ' + position.coords.latitude + '\n' 
-        + 'Lon: ' + position.coords.longitude + '\n'
-        + 'Alt: ' + position.coords.altitude + '\n'
-        + 'Accuracy: ' + position.coords.accuracy + '\n'
-        + 'Alt Accuracy: ' + position.coords.altitudeAccuracy + '\n'
-        + 'Heading: ' + position.coords.heading + '\n'
-        + 'Speed: ' + position.coords.speed + '\n'
-        + 'Timestamp: ' + position.timestamp + '\n'
+    alert('Lat: ' + position.coords.latitude + '\n' +
+        'Lon: ' + position.coords.longitude + '\n' +
+        'Alt: ' + position.coords.altitude + '\n' +
+        'Accuracy: ' + position.coords.accuracy + '\n' +
+        'Alt Accuracy: ' + position.coords.altitudeAccuracy + '\n' +
+        'Heading: ' + position.coords.heading + '\n' +
+        'Speed: ' + position.coords.speed + '\n' +
+        'Timestamp: ' + position.timestamp + '\n'
     );
 }
 
@@ -123,24 +143,75 @@ function startAccelerometer() {
 }
 
 function onAccelerometerSuccess(acceleration) {
-    alert('X: ' + acceleration.x + '\n'
-        + 'Y: ' + acceleration.y + '\n'
-        + 'Z: ' + acceleration.z + '\n'
-        + 'Timestamp: ' + acceleration.timestamp + '\n'
+    alert('X: ' + acceleration.x + '\n' +
+        'Y: ' + acceleration.y + '\n' +
+        'Z: ' + acceleration.z + '\n' +
+        'Timestamp: ' + acceleration.timestamp + '\n'
     );
 }
 
-/* Video */
-function toggleMobileVideo() {
-	if (!$('#research_mobile').hasClass("hidden")) {
-		toggleMobileResearch();
-	}
-	$('#video_mobile').toggleClass("hidden");
-}
-
+/* Research */
 function toggleMobileResearch() {
 	if (!$('#video_mobile').hasClass("hidden")) {
 		toggleMobileVideo();
 	}
 	$('#research_mobile').toggleClass("hidden");
+}
+
+/* Twitter Restful Service */
+function twitterRequest(url) {
+	$.ajax({
+		url: url,
+		dataType: 'jsonp',
+		success: function(data){
+/* 		console.log(data); */
+		
+		$.each(data, function(key, val) {
+			if	(key === "results") {
+/* 				console.log(val); */
+				$.each(val, function(k, v) {
+/* 					console.log(k + " " +  v.from_user); */
+					
+					var li = $('<li>');
+					var p = $('<p>');
+					li.append(p);
+					p.text(v.from_user_name + ":").append($('<br>'))
+					.append(v.text)
+					$('#twitterFeed ul').append(li);
+				});
+			}
+		});
+		
+      },
+      error: function(){console.log("Error.")}
+	});
+}
+
+/* Foursquare Restful Service */
+function freebaseRequest(url) {
+	$.ajax({
+		url: url,
+		dataType: 'jsonp',
+		success: function(data){
+		console.log(data);
+		$.each(data, function(key, val) {
+/* 			console.log(key); */
+			if	(key === "result") {
+				$.each(val, function(k, v) {
+/* 					console.log(v.name); */
+					
+					var li = $('<li>');
+					var p = $('<p>');
+					li.append(p);
+					p.text(v.name + ":").append($('<br>'))
+					.append(v.notable.name).append($('<br>'))
+					.append("Score: " + v.score)
+					$('#freebaseFeed ul').append(li);
+				});
+			}
+		});
+
+      },
+      error: function(){console.log("Error.")}
+	});
 }
