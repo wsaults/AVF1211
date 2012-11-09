@@ -154,7 +154,7 @@ Term: 1211
 	}
 	
 	/* Hide smartphone elements */
-	#toolbar {display: none;}
+/* 	#toolbar {display: none;} */
 	#content {display: none;}
 	#content_mobile {display: none;}
 }
@@ -309,7 +309,7 @@ Term: 1211
 	}
 	
 	/* Hide smartphone elements */
-	#toolbar {display: none;}
+/* 	#toolbar {display: none;} */
 	#content {display: none;}
 	#content_mobile {display: none;}
 }
@@ -517,4 +517,36 @@ Term: 1211
 	}
 	
 	.hidden {display: none;}
+	
+	#toolbar {
+		display: block;
+		font-size: 10px;
+		background: black;
+		height: 60px;
+		width: 100%;
+		border-top: solid silver 1px;
+		left: 0;   /* Keeps the toolbar fastened to the left */
+		bottom: 0; /* Keeps the toolbar fasted to the bottom */
+		position: fixed;
+	}
+	
+	#toolbar ul, #titlebar ul {
+		margin:0;
+        padding:0;
+        width: 100%;
+	}
+	
+	#toolbar li {
+		display: inline;
+		float: left;
+		width: 20%;
+		height: 60px;
+		text-align: center;
+		padding: 20px 0;
+	}
+	
+	#toolbar li a {
+		color: aqua;
+		text-decoration: none;
+	}
 }
