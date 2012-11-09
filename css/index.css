@@ -6,8 +6,7 @@ Term: 1211
 
 /* Larger than 768 */
 @media only screen and (min-width: 769px) {
-	
-body {
+	body {
     	background-image:url("textures/dark_dotted.png");
 	}
 
@@ -55,6 +54,12 @@ body {
 		font-size: 16px;
 	}
 	
+	#titlebar li button {
+		float: left;
+		margin-left: 15px;
+		margin-right: -35px;
+	}
+	
 	#titlebar ul {
 		margin:0;
         padding:0;
@@ -71,64 +76,81 @@ body {
 	#content_tablet ul {
 		margin: 5px 5px;
         padding:0;
-        background: gray;
 	}
 	
 	#content_tablet li {
-		height: 60px;
+		margin: 5px 4px;
+		height: 120px;
+		width: 31%;
 		border: solid black 1px;
+		float: left;
+		font-family:  "Verdana", "Helvetica", sans-serif;
+		color: white;
+		font-size: 13px;
+		padding-left: 5px;
 	}
+	
+	#content_tablet ul li:nth-child(1n) { background: rgba(50, 400, 300, 0.5); }
+	#content_tablet ul li:nth-child(2n) { background: rgba(50, 200, 300, 0.5); }
+	#content_tablet ul li:nth-child(3n) { background: rgba(150, 150, 400, 0.5); }
+	#content_tablet ul li:nth-child(6n) { background: rgba(300, 150, 400, 0.5); }
 	
 	#content_tablet li a {
 		text-decoration: none;
 		font-weight: bold;
 		display: block;
 		width: 100%;
+		height: 120px;
+		padding-top: 70px;
+		padding-left: 15px;
+		color: white;
+		font-family:  "Verdana", "Helvetica", sans-serif;
+		font-size: 24px;
+	}
+	
+	#twitterFeed ul li, freebaseFeed ul li{
+		height: 130px;
+	}
+	
+	#twitterFeed ul li p, freebaseFeed ul li p{
+		margin-top: 7px;
+	}
+	
+	#content_tablet_research {
+		display: block;
+		width: 100%;
 		height: 100%;
-		padding-top: 10px;
-		padding-left: 5px;
 	}
 	
-	#video_mobile {
-		margin: 0 auto; 
-		width: 320px;
+	#content_tablet_research ul {
+		margin: 5px 5px;
+        padding:0;
 	}
 	
-	#research_mobile {
-		margin: 0 auto; 
-		width: 600px;
-		padding: 10px; 
-	}
-	
-	#research_mobile ul li {
+	#content_tablet_research li {
+		margin: 5px 4px;
+		height: 100%;
+		width: 47%;
+		border: solid black 1px;
+		float: left;
+		font-family:  "Verdana", "Helvetica", sans-serif;
+		color: white;
 		font-size: 13px;
-	}
-	
-	/* Features */
-	#features_tablet {
-		display: block;
-		width: 100%;
-	}
-	
-	#features_tablet ul {
-		margin: 20px 20px;
-        padding: 20px 20px;
-	}
-	
-	#features_tablet li {
-		text-align: center;
-		height: 44px;
-		padding: 20px 0;
-	}
-	
-	#features_tablet li a {
-		text-decoration: none;
-		font-weight: bold;
-		display: block;
-		width: 100%;
-		height: 100%;
-		padding-top: 10px;
 		padding-left: 5px;
+		overflow: hidden;
+	}
+	
+	#content_tablet_research ul li:nth-child(1n) { background: rgba(50, 400, 300, 0.5); }
+	#content_tablet_research ul li:nth-child(2n) { background: rgba(50, 200, 300, 0.5); }
+	#content_tablet_research ul li:nth-child(3n) { background: rgba(150, 150, 400, 0.5); }
+			
+	#research_tablet {
+		height: 100%;
+
+	}
+	
+	#research_tablet ul li {
+		font-size: 13px;
 	}
 	
 	/* Hide smartphone elements */
@@ -187,6 +209,12 @@ body {
 		font-size: 16px;
 	}
 	
+	#titlebar li button {
+		float: left;
+		margin-left: 15px;
+		margin-right: -35px;
+	}
+	
 	#titlebar ul {
 		margin:0;
         padding:0;
@@ -203,64 +231,81 @@ body {
 	#content_tablet ul {
 		margin: 5px 5px;
         padding:0;
-        background: gray;
 	}
 	
 	#content_tablet li {
-		height: 60px;
+		margin: 5px 4px;
+		height: 120px;
+		width: 31%;
 		border: solid black 1px;
+		float: left;
+		font-family:  "Verdana", "Helvetica", sans-serif;
+		color: white;
+		font-size: 13px;
+		padding-left: 5px;
 	}
+	
+	#content_tablet ul li:nth-child(1n) { background: rgba(50, 400, 300, 0.5); }
+	#content_tablet ul li:nth-child(2n) { background: rgba(50, 200, 300, 0.5); }
+	#content_tablet ul li:nth-child(3n) { background: rgba(150, 150, 400, 0.5); }
+	#content_tablet ul li:nth-child(6n) { background: rgba(300, 150, 400, 0.5); }
 	
 	#content_tablet li a {
 		text-decoration: none;
 		font-weight: bold;
 		display: block;
 		width: 100%;
+		height: 120px;
+		padding-top: 70px;
+		padding-left: 15px;
+		color: white;
+		font-family:  "Verdana", "Helvetica", sans-serif;
+		font-size: 24px;
+	}
+	
+	#twitterFeed ul li, freebaseFeed ul li{
+		height: 130px;
+	}
+	
+	#twitterFeed ul li p, freebaseFeed ul li p{
+		margin-top: 7px;
+	}
+	
+	#content_tablet_research {
+		display: block;
+		width: 100%;
 		height: 100%;
-		padding-top: 10px;
-		padding-left: 5px;
 	}
 	
-	#video_mobile {
-		margin: 0 auto; 
-		width: 320px;
+	#content_tablet_research ul {
+		margin: 5px 5px;
+        padding:0;
 	}
 	
-	#research_mobile {
-		margin: 0 auto; 
-		width: 600px;
-		padding: 10px; 
-	}
-	
-	#research_mobile ul li {
+	#content_tablet_research li {
+		margin: 5px 4px;
+		height: 100%;
+		width: 47%;
+		border: solid black 1px;
+		float: left;
+		font-family:  "Verdana", "Helvetica", sans-serif;
+		color: white;
 		font-size: 13px;
-	}
-	
-	/* Features */
-	#features_tablet {
-		display: block;
-		width: 100%;
-	}
-	
-	#features_tablet ul {
-		margin: 20px 20px;
-        padding: 20px 20px;
-	}
-	
-	#features_tablet li {
-		text-align: center;
-		height: 44px;
-		padding: 20px 0;
-	}
-	
-	#features_tablet li a {
-		text-decoration: none;
-		font-weight: bold;
-		display: block;
-		width: 100%;
-		height: 100%;
-		padding-top: 10px;
 		padding-left: 5px;
+		overflow: hidden;
+	}
+	
+	#content_tablet_research ul li:nth-child(1n) { background: rgba(50, 400, 300, 0.5); }
+	#content_tablet_research ul li:nth-child(2n) { background: rgba(50, 200, 300, 0.5); }
+	#content_tablet_research ul li:nth-child(3n) { background: rgba(150, 150, 400, 0.5); }
+			
+	#research_tablet {
+		height: 100%;
+
+	}
+	
+	#research_tablet ul li {
+		font-size: 13px;
 	}
 	
 	/* Hide smartphone elements */
@@ -380,6 +425,12 @@ body {
 		font-size: 16px;
 	}
 	
+	#titlebar li button {
+		float: left;
+		margin-left: 15px;
+		margin-right: -35px;
+	}
+	
 	#toolbar {
 		display: block;
 		font-size: 10px;
@@ -415,7 +466,8 @@ body {
 	/* Hide tablet/desktop elements */
 	#content {display: none;}
 	#content_tablet {display: none;}
-	#features_tablet {display: none;} 
+	#features_tablet {display: none;}
+	#content_tablet_research{display: none;} 
 }
 
 /* All Platforms */

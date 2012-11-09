@@ -5,19 +5,13 @@
 // Wait until the DOM is ready
 $(document).ready(function() {
 /* 	twitterRequest("http://search.twitter.com/search.json?q=election&rpp=20&include_entities=true&result_type=mixed"); */
-	
 	twitterRequest("http://search.twitter.com/search.json?q=ios&rpp=20&include_entities=true&result_type=recent&geocode=37.781157,-122.398720,5mi");
-	
 /* 	twitterRequest("http://search.twitter.com/search.json?q=%40twitterapi%20-via"); */
-	
 /* 	twitterRequest("http://search.twitter.com/search.json?q=place%3A247f43d441defc03"); */
 
 	freebaseRequest("https://www.googleapis.com/freebase/v1/search?query=heroes&start=10&limit=20&indent=true");
 /* 	freebaseRequest("https://www.googleapis.com/freebase/v1/search?query=andy&start=10&limit=10&indent=true"); */
 /* 	freebaseRequest("https://www.googleapis.com/freebase/v1/search?query=will&start=10&limit=10&indent=true"); */
-
-
-	
 });
 
 // Device
@@ -25,14 +19,19 @@ document.addEventListener("deviceready", deviceReady, false);
 
 function deviceReady() {
 	console.log("Device ready");
-	alert('Name: ' + device.name + '\n'
+	/*
+alert('Name: ' + device.name + '\n'
 		+ 'Cordova: '  + device.cordova + '\n'
 		+ 'Platform: ' + device.platform + '\n'
 		+ 'Version: '  + device.version
 	);
+*/
 	
-    checkConnection();
-    applyEventListeners();
+/*     checkConnection(); */
+/*     applyEventListeners(); */
+    
+	twitterRequest("http://search.twitter.com/search.json?q=ios&rpp=20&include_entities=true&result_type=recent&geocode=37.781157,-122.398720,5mi");
+	freebaseRequest("https://www.googleapis.com/freebase/v1/search?query=heroes&start=10&limit=20&indent=true");
 }
 
 function applyEventListeners() {

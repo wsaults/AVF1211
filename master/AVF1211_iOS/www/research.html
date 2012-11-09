@@ -20,7 +20,7 @@ Term: 1211
 	<!-- Titlebar -->
 	<div id="titlebar">
 		<ul>
-			<li>William Saults - AVF1211 APP</li>
+			<li><button onClick="history.go(-1)">Back</button>William Saults - AVF1211 APP</li>
 		</ul>
 	</div>
 	<div id="header">
@@ -106,11 +106,85 @@ The Yahoo! Search & Yahoo! Finance apps have done a nice job of using UIAccessib
 	</section>
 	
 	<!-- Tablet -->
-	<div id="content_tablet">
+	<section id="content_tablet_research">
+		<div id="research_tablet">
+			<ul>
+			
+<!-- 			Discuss: Industry Research, Project Intent -->
+				<li>
+				<p>Discuss: Industry Research, Project Intent</p>
+					<p>
+			Looks like there are several native features that may be utilized through HTML, CSS, and JavaScript and applied with Phone Gap. The feature that stands out the most for me would be the use of user notifications. Being able to alert a user can be a huge plus for an app. I’ve been playing Word Press on my iOS devices and it’s incredibly nice to see a notification when it’s my turn to play. On the other hand notifications can be extremely pesky and aggravating when over used. It is so annoying looking down at my device and seeing a dozen pointless notifications from Facebook. FB was the first app to have notifications disabled on my devices.
+			</p>
+			
+			<p>Features that would pair well together:</p> 
+			<p>Accelerometer, compass, and geolocation for tracking a user.</br>
+			Camera, media, contacts, and storage for an Instagram style app.</br>
+			It would be cool to see the camera used to make an app that can read ASL while someone is signing.</br>
+			</p>
+			 
+			<p>
+			I haven’t nailed down any particular design or features yet. I would however like to play around with features like the camera, geolocation, and tapping into some social APIs.
+			</p>
+			 
+			<p>
+			While learning about the new UICollecitonsView bundled with iOS I found it helpful watch the videos on the Apple developer portal and then experiment with it my self.
+			</p>
+			 
+			<p>
+			I think one of the biggest hurdles I recently jumped was learning about the new Auto Layout feature in interface builder. This was a step in the right direction for iOS layouts especially since the new iPhone 5 form factor arrived. I’ll admit that getting used to Auto Layout was a bit of a chore. I’ve been working with absolute layouts for so long that making the change from CGRectMake() to NSLayoutConstrait was kind of a big jump. Nevertheless the iOS dev portal videos proved helpful once again.
+			</p>
+			
+			<p>
+			They have 3 really enlightening videos about Auto Layout from the 2012 WWDC. After watching those it was mostly trial and error until laying out elements with Auto Layout felt natural. Don’t let the name fool you, it’s not as ‘auto’ as it may sound.
+			</p>
+		</li>
 		
-	</div>
+		
+<!-- 		Discussion: Accessibility -->
+		<li>
+		<p>Discussion: Accessibility</p>
+		<p>After reviewing the content on screen readers I realized some of my code may not play well with applications like Jaws. In some situations I’m using JavaScript to toggle some hide/reveal events and judging by the way that Jaws works a visually impaired user may have a difficult time knowing what my buttons do or even knowing that something has happened once they have clicked a button. One apparent change will be to make sure all of my anchor tags are appropriately named. A visually impaired user may not realize that “peeps” will take them to “contacts”.</p>
+
+
+<p>I can imagine someone getting frustrated with a site that has random words linked to unrelated pages.</p>
+
+<p>As a visual user I can simply skip over the annoying ads and try to dodge them with my cursor. However since some applications like Jaws present the user with a long list of links on the page they cannot always just overlook them.</p>
+
+ 
+<p>The W3C Web Accessibility Initiative:</br>
+
+<a href="http://www.w3.org/WAI/" alt="The W3C Web Accessibility Initiative">http://www.w3.org/WAI/</a></br>
+
+<p>(Not necessarily a device or a feature but these guys are on the front line of accessibility enforcement.)</br>
+
+ 
+<p>IBM Home Page Reader (Windows):</br>
+
+<a href="http://en.wikipedia.org/wiki/IBM_Homepage_Reader" alt="IBM Home Page Reader (Windows)">http://en.wikipedia.org/wiki/IBM_Homepage_Reader</a></br>
+
+<p>Emacspeak (Linux):</br>
+
+<a href="http://emacspeak.sourceforge.net/" alt="Emacspeak (Linux)">http://emacspeak.sourceforge.net/</a></br>
+
+<p>VoiceOver (Mac):</br>
+
+<a href="http://www.apple.com/accessibility/voiceover/" alt="VoiceOver (Mac)">http://www.apple.com/accessibility/voiceover/</a></br>
+
+ 
+<p>iOS Apps using UIAccessibilityElement </br>
+
+Here is the class reference: <a href="http://tinyurl.com/af2k7up" alt="UIAccessibilityElement">http://tinyurl.com/af2k7up</a></br>
+
+The Yahoo! Search & Yahoo! Finance apps have done a nice job of using UIAccessiblityElement properties like accessibilityLabel and accessiblityHint to help improve the user experience of their apps.
+</p>
+		</li>
+			</ul>
+		</div>
+	</section>
 	
-	<div id="features_tablet">
+	<!--
+<div id="features_tablet">
 		<ul>
 			<li><button onclick="takePhoto();">Camera</button></li>
 			<li><button onclick="startCompass();">Compass</button></li>
@@ -119,6 +193,7 @@ The Yahoo! Search & Yahoo! Finance apps have done a nice job of using UIAccessib
 			<li><button onclick="startAccelerometer();">Accelerometer</button></li>
 		</ul>
 	</div>
+-->
 	
 	<!-- Toolbar -->
 	<!--
@@ -132,38 +207,7 @@ The Yahoo! Search & Yahoo! Finance apps have done a nice job of using UIAccessib
 		</ul>
 	</div>
 -->
-	
-	<!-- Desktop -->
-	<div id="content">
-		<div id="features">
-			<h2>Mobile Features</h2>
-			<hr>
-			<ul>
-				<li>Camera</li>
-				<li>GPS</li>
-				<li>Contacts</li>
-				<li>Geolocation</li>
-				<li>Upload files</li>
-			</ul>
-		</div>
-		<div id="apis">
-			<h2>JSON APIs</h2>
-			<hr>
-			<ul>
-				<li>Flickr API</li>
-				<li>Twitter API</li>
-			</ul>
-		</div>
-		<div id="research">
-			<h2>Research</h2>
-			<hr>
-			<ul>
-				<li><a href="#">Discussion topic one</a></li>
-				<li><a href="#">Discussion topic two</a></li>
-				<li><a href="#">Discussion topic three</a></li>
-			</ul>
-		</div>
-	</div>
+
 	<div id="footer">
 <!-- 		<p>Copyright</p> -->
 	</div>
