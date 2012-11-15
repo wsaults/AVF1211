@@ -76,6 +76,7 @@ Term: 1211
 	#content_tablet ul {
 		margin: 5px 5px;
         padding:0;
+        overflow: hidden;
 	}
 	
 	#content_tablet li {
@@ -87,7 +88,6 @@ Term: 1211
 		font-family:  "Verdana", "Helvetica", sans-serif;
 		color: white;
 		font-size: 13px;
-		padding-left: 5px;
 	}
 	
 	#content_tablet ul li:nth-child(1n) { background: rgba(50, 400, 300, 0.5); }
@@ -99,23 +99,35 @@ Term: 1211
 		text-decoration: none;
 		font-weight: bold;
 		display: block;
-		width: 100%;
-		height: 120px;
-		padding-top: 70px;
-		padding-left: 15px;
+		height: 100%;
 		color: white;
 		font-family:  "Verdana", "Helvetica", sans-serif;
 		font-size: 24px;
+		line-height:165px;
+		padding-left: 10px;
+	}
+	
+	#twitterFeed ul, freebaseFeed ul{
+		overflow: hidden;
 	}
 	
 	#twitterFeed ul li, freebaseFeed ul li{
-		height: 130px;
+		height: 200px;
+	}
+	
+	#twitterFeed ul li img, freebaseFeed ul li img{
+		padding-left: 10px;
+	}
+	
+	#twitterFeed ul li h4, freebaseFeed ul li h4{
+		margin: 5px 0 0 5px;
 	}
 	
 	#twitterFeed ul li p, freebaseFeed ul li p{
-		margin-top: 7px;
+		font-size: 90%;
+		padding-left: 5px;
 	}
-	
+		
 	#content_tablet_research {
 		display: block;
 		width: 100%;
@@ -154,7 +166,6 @@ Term: 1211
 	}
 	
 	/* Hide smartphone elements */
-/* 	#toolbar {display: none;} */
 	#content {display: none;}
 	#content_mobile {display: none;}
 }
@@ -231,6 +242,7 @@ Term: 1211
 	#content_tablet ul {
 		margin: 5px 5px;
         padding:0;
+        overflow: hidden;
 	}
 	
 	#content_tablet li {
@@ -242,7 +254,6 @@ Term: 1211
 		font-family:  "Verdana", "Helvetica", sans-serif;
 		color: white;
 		font-size: 13px;
-		padding-left: 5px;
 	}
 	
 	#content_tablet ul li:nth-child(1n) { background: rgba(50, 400, 300, 0.5); }
@@ -254,23 +265,35 @@ Term: 1211
 		text-decoration: none;
 		font-weight: bold;
 		display: block;
-		width: 100%;
-		height: 120px;
-		padding-top: 70px;
-		padding-left: 15px;
+		height: 100%;
 		color: white;
 		font-family:  "Verdana", "Helvetica", sans-serif;
 		font-size: 24px;
+		line-height:165px;
+		padding-left: 10px;
+	}
+	
+	#twitterFeed ul, freebaseFeed ul{
+		overflow: hidden;
 	}
 	
 	#twitterFeed ul li, freebaseFeed ul li{
-		height: 130px;
+		height: 200px;
+	}
+	
+	#twitterFeed ul li img, freebaseFeed ul li img{
+		padding-left: 10px;
+	}
+	
+	#twitterFeed ul li h4, freebaseFeed ul li h4{
+		margin: 5px 0 0 5px;
 	}
 	
 	#twitterFeed ul li p, freebaseFeed ul li p{
-		margin-top: 7px;
+		font-size: 90%;
+		padding-left: 5px;
 	}
-	
+		
 	#content_tablet_research {
 		display: block;
 		width: 100%;
@@ -309,7 +332,6 @@ Term: 1211
 	}
 	
 	/* Hide smartphone elements */
-/* 	#toolbar {display: none;} */
 	#content {display: none;}
 	#content_mobile {display: none;}
 }
@@ -364,14 +386,6 @@ Term: 1211
 		font-size: 13px;
 	}
 	
-	#twitterFeed ul li, freebaseFeed ul li{
-		height: 100px;
-	}
-	
-	#twitterFeed ul li p, freebaseFeed ul li p{
-		margin-top: 7px;
-	}
-	
 	#content_mobile li a {
 		text-decoration: none;
 		display: block;
@@ -382,6 +396,33 @@ Term: 1211
 		color: white;
 		font-family:  "Verdana", "Helvetica", sans-serif;
 		font-size: 20px;
+	}
+	
+	#twitterFeed ul, #freebaseFeed ul{
+		overflow: hidden;
+	}
+	
+	#twitterFeed ul li {
+		height: 140px;
+	}
+	
+	#twitterFeed ul li h4, #freebaseFeed ul li h4{
+		margin: 5px 0 -10px 2px;
+		font-size: 90%;
+	}
+	
+	#twitterFeed ul li p s{
+		font-size: 90%;
+		padding-left: 5px;
+	}
+	
+	#twitterFeed ul li img {
+		margin-top: -5px;
+		left: 70%;
+		position: relative;
+		border: solid white 1px;
+		padding: 0;
+		background: white;
 	}
 	
 	#research_mobile {

@@ -26,6 +26,7 @@
 	<array>
 		<string>*.googleapis.com</string>
 		<string>search.twitter.com</string>
+		<string>*.twimg.com</string>
 	</array>
 	<key>Plugins</key>
 	<dict>

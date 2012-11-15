@@ -2,41 +2,36 @@
 // Name: William Saults
 // Term: 1211
 
+var subject = "ios";
+var lat = 0;
+var long = 0;
+var imageArray = new Array();
+	
 // Wait until the DOM is ready
 $(document).ready(function() {
-/* 	twitterRequest("http://search.twitter.com/search.json?q=election&rpp=20&include_entities=true&result_type=mixed"); */
-	twitterRequest("http://search.twitter.com/search.json?q=ios&rpp=20&include_entities=true&result_type=recent&geocode=37.781157,-122.398720,5mi");
-/* 	twitterRequest("http://search.twitter.com/search.json?q=%40twitterapi%20-via"); */
-/* 	twitterRequest("http://search.twitter.com/search.json?q=place%3A247f43d441defc03"); */
+	if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+		subject = "iOS";
+	} else if (/Android/i.test(navigator.userAgent)) {
+		subject = "Android";
+	}
 
-	freebaseRequest("https://www.googleapis.com/freebase/v1/search?query=heroes&start=10&limit=20&indent=true");
-/* 	freebaseRequest("https://www.googleapis.com/freebase/v1/search?query=andy&start=10&limit=10&indent=true"); */
-/* 	freebaseRequest("https://www.googleapis.com/freebase/v1/search?query=will&start=10&limit=10&indent=true"); */
+	if (/Android|webOS|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+		startGeo();
+	} else {
+		lat = 27.781157;
+		long = -122.398720;
+		freebaseRequest("https://www.googleapis.com/freebase/v1/search?query=heroes&start=10&limit=20&indent=true");
+		twitterRequest("http://search.twitter.com/search.json?q="+subject+"&rpp=20&include_entities=true&result_type=recent&geocode="+lat+","+long+",1000mi");
+	}
 });
 
 // Device
 document.addEventListener("deviceready", deviceReady, false);
 
-function deviceReady() {
-	console.log("Device ready");
-	/*
-alert('Name: ' + device.name + '\n'
-		+ 'Cordova: '  + device.cordova + '\n'
-		+ 'Platform: ' + device.platform + '\n'
-		+ 'Version: '  + device.version
-	);
-*/
-	
-/*     checkConnection(); */
-/*     applyEventListeners(); */
+function deviceReady() {	
+    checkConnection();
     
-	twitterRequest("http://search.twitter.com/search.json?q=ios&rpp=20&include_entities=true&result_type=recent&geocode=37.781157,-122.398720,5mi");
-	freebaseRequest("https://www.googleapis.com/freebase/v1/search?query=heroes&start=10&limit=20&indent=true");
-}
-
-function applyEventListeners() {
-	$('.mobileResearch').click(toggleMobileResearch);
-	$('.mobileResearch').on("touchstart", toggleMobileResearch);
+    setInterval(function(){ navigator.accelerometer.getCurrentAcceleration(onAccelerationSuccess, onError); }, 500);
 }
 
 /* Generic Error Alert */
@@ -60,8 +55,13 @@ function checkConnection() {
     status[Connection.CELL_3G]  = 'Cell 3G';
     status[Connection.CELL_4G]  = 'Cell 4G';
     status[Connection.NONE]     = 'No network connection';
-
-    alert('Connection: ' + status[networkStatus]);
+    
+    if (status[networkStatus] != "Unknown") {
+    	freebaseRequest("https://www.googleapis.com/freebase/v1/search?query=heroes&start=10&limit=20&indent=true");
+		twitterRequest("http://search.twitter.com/search.json?q="+subject+"&rpp=20&include_entities=true&result_type=recent&geocode="+lat+","+long+",1000mi");
+    } else {
+    	alert("Connection status Unknown.")
+    }
 }
 
 /* Camera */
@@ -79,74 +79,86 @@ function onCameraSuccess(imageData) {
 	alert('imageData success ');
 }
 
-/* Compass */
-// The compass id references the current 'watchHeading'
-var compassID = null;
 
-function startCompass() {
-    // Update compass every 3 seconds
-    var options = { frequency: 3000 };
-
-    compassID = navigator.compass.watchHeading(onCompassSuccess, onCompassError, options);
-}
-
-function stopCompass() {
-    if (compassID) {
-        navigator.compass.clearWatch(compassID);
-        compassID = null;
+/* Accelerometer */
+function onAccelerationSuccess(acceleration) {
+    console.log('Acceleration Y: ' + acceleration.y);
+    
+    var left = 0;
+    if(acceleration.x > 0) {
+    	// left side
+	    if (acceleration.y > 0) {
+	    	if	(acceleration.y > 9) {
+	    		acceleration.y = 9;
+	    	}
+	    	acceleration.y = acceleration.y/2;
+	    	left = acceleration.y * 10;
+	    } else {
+	    	acceleration.y = 9;
+	    }
+    } else {
+    	// right side
+    	if (acceleration.y > 0) {
+    		
+    		acceleration.y = numSwap(acceleration.y);
+    		
+	    	acceleration.y = acceleration.y/2;
+	    	left = acceleration.y * 10;
+	    } else {
+	 		acceleration.y = 9;
+	    }
     }
+    
+    $('#twitterFeed ul li img').css({
+	  left: left + '%'
+	});
 }
 
-
-function onCompassSuccess(heading) {
-    alert('Heading: ' + heading.magneticHeading);
-    stopCompass();
+function numSwap(x) {
+	switch(Math.floor(x))
+		{
+		case 0:
+		case 1:
+		  	x = 16;
+		  break;
+		case 2:
+		  	x = 15;
+		  break;
+		case 3:
+		  	x = 14;
+		  break;
+		case 4:
+		  	x = 13;
+		  break;
+		case 5:
+		  	x = 12;
+		  break;
+		case 6:
+		  	x = 11;
+		  break;
+		case 7:
+		  	x = 10;
+		  break;
+		case 8:
+		  	x = 9;
+		  break;
+		case 9:
+		  	x = 9;
+		  break;
+		default:
+		  
+		}
+	return x;
 }
-
-/* Contacts */
-// Contact search criteria
-function searchContacts() {
-var options = new ContactFindOptions();
-	options.filter = "";
-	options.multiple = true;
-	var fields = ["displayName"];
-	
-	navigator.contacts.find(fields, onContactSuccess, onError, options);
-}
-
-function onContactSuccess(contacts) {
-    alert('Yay found ' + contacts.length + ' contacts!');
-};
 
 /* Geolocation */
 function startGeo() {
 	navigator.geolocation.getCurrentPosition(onGeoSuccess, onError);
 }
 
-function onGeoSuccess(position) {
-    alert('Lat: ' + position.coords.latitude + '\n' +
-        'Lon: ' + position.coords.longitude + '\n' +
-        'Alt: ' + position.coords.altitude + '\n' +
-        'Accuracy: ' + position.coords.accuracy + '\n' +
-        'Alt Accuracy: ' + position.coords.altitudeAccuracy + '\n' +
-        'Heading: ' + position.coords.heading + '\n' +
-        'Speed: ' + position.coords.speed + '\n' +
-        'Timestamp: ' + position.timestamp + '\n'
-    );
-}
-
-
-/* Accelerometer */
-function startAccelerometer() {
-	navigator.accelerometer.getCurrentAcceleration(onAccelerometerSuccess, onError);
-}
-
-function onAccelerometerSuccess(acceleration) {
-    alert('X: ' + acceleration.x + '\n' +
-        'Y: ' + acceleration.y + '\n' +
-        'Z: ' + acceleration.z + '\n' +
-        'Timestamp: ' + acceleration.timestamp + '\n'
-    );
+function onGeoSuccess(position) {   
+    lat = position.coords.latitude;
+    long = position.coords.longitude;
 }
 
 /* Research */
@@ -163,19 +175,30 @@ function twitterRequest(url) {
 		url: url,
 		dataType: 'jsonp',
 		success: function(data){
-/* 		console.log(data); */
+		console.log(data);
 		
 		$.each(data, function(key, val) {
 			if	(key === "results") {
-/* 				console.log(val); */
 				$.each(val, function(k, v) {
-/* 					console.log(k + " " +  v.from_user); */
-					
 					var li = $('<li>');
 					var p = $('<p>');
+					var h4 = $('<h4>');
+					li.append(h4);
+					h4.text(v.from_user_name + ":");
 					li.append(p);
-					p.text(v.from_user_name + ":").append($('<br>'))
-					.append(v.text)
+					if(v.profile_image_url.length < 120) {
+						li.append($('<img>', { 
+						    src : v.profile_image_url, 
+						    width : 50, 
+						    height : 50, 
+						    alt : "Profile Pic", 
+						    title : "Profile Pic",
+						    onClick : "test("+k+")"
+						}));
+						
+						imageArray.push(v.profile_image_url);
+					}
+					p.text(v.text);
 					$('#twitterFeed ul').append(li);
 				});
 			}
@@ -186,25 +209,23 @@ function twitterRequest(url) {
 	});
 }
 
-/* Foursquare Restful Service */
+/* Freebase Restful Service */
 function freebaseRequest(url) {
 	$.ajax({
 		url: url,
 		dataType: 'jsonp',
 		success: function(data){
-		console.log(data);
 		$.each(data, function(key, val) {
-/* 			console.log(key); */
 			if	(key === "result") {
 				$.each(val, function(k, v) {
-/* 					console.log(v.name); */
-					
 					var li = $('<li>');
 					var p = $('<p>');
+					var h4 = $('<h4>');
+					li.append(h4);
+					h4.text(v.name + ":");
 					li.append(p);
-					p.text(v.name + ":").append($('<br>'))
-					.append(v.notable.name).append($('<br>'))
-					.append("Score: " + v.score)
+					p.text(v.notable.name).append($('<br>'))
+					.append("Score: " + v.score);
 					$('#freebaseFeed ul').append(li);
 				});
 			}
@@ -213,4 +234,9 @@ function freebaseRequest(url) {
       },
       error: function(){console.log("Error.")}
 	});
+}
+
+function test(index) {
+	console.log(imageArray[index]);
+    console.log("Test");
 }
