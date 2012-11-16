@@ -107,27 +107,31 @@ Term: 1211
 		padding-left: 10px;
 	}
 	
-	#twitterFeed ul, freebaseFeed ul{
+	#twitterFeed ul, #freebaseFeed ul{
 		overflow: hidden;
 	}
 	
-	#twitterFeed ul li, freebaseFeed ul li{
+	#twitterFeed ul li {
 		height: 200px;
-	}
-	
-	#twitterFeed ul li img, freebaseFeed ul li img{
+	}	
+	#twitterFeed ul li p, #freebaseFeed ul li p{
+		font-size: 90%;
 		padding-left: 10px;
 	}
 	
-	#twitterFeed ul li h4, freebaseFeed ul li h4{
+	#twitterFeed ul li img {
+		margin-top: -5px;
+		left: 70%;
+		position: relative;
+		border: solid white 1px;
+		padding: 0;
+		background: white;
+	}
+
+	#twitterFeed ul li h4, #freebaseFeed ul li h4{
 		margin: 5px 0 0 5px;
 	}
-	
-	#twitterFeed ul li p, freebaseFeed ul li p{
-		font-size: 90%;
-		padding-left: 5px;
-	}
-		
+
 	#content_tablet_research {
 		display: block;
 		width: 100%;
@@ -273,27 +277,31 @@ Term: 1211
 		padding-left: 10px;
 	}
 	
-	#twitterFeed ul, freebaseFeed ul{
+	#twitterFeed ul, #freebaseFeed ul{
 		overflow: hidden;
 	}
 	
-	#twitterFeed ul li, freebaseFeed ul li{
+	#twitterFeed ul li {
 		height: 200px;
-	}
-	
-	#twitterFeed ul li img, freebaseFeed ul li img{
+	}	
+	#twitterFeed ul li p, #freebaseFeed ul li p{
+		font-size: 90%;
 		padding-left: 10px;
 	}
 	
-	#twitterFeed ul li h4, freebaseFeed ul li h4{
+	#twitterFeed ul li img {
+		margin-top: -5px;
+		left: 60%;
+		position: relative;
+		border: solid white 1px;
+		padding: 0;
+		background: white;
+	}
+
+	#twitterFeed ul li h4, #freebaseFeed ul li h4{
 		margin: 5px 0 0 5px;
 	}
-	
-	#twitterFeed ul li p, freebaseFeed ul li p{
-		font-size: 90%;
-		padding-left: 5px;
-	}
-		
+
 	#content_tablet_research {
 		display: block;
 		width: 100%;
@@ -345,7 +353,6 @@ Term: 1211
 	h1 {
 		color: white;
 		font-size: 18pt;
-		
 		display: none; /* Remove this to display in app */
 	}
 
@@ -411,7 +418,7 @@ Term: 1211
 		font-size: 90%;
 	}
 	
-	#twitterFeed ul li p s{
+	#twitterFeed ul li p {
 		font-size: 90%;
 		padding-left: 5px;
 	}
@@ -472,42 +479,15 @@ Term: 1211
 		margin-right: -35px;
 	}
 	
-	#toolbar {
-		display: block;
-		font-size: 10px;
-		background: black;
-		height: 60px;
-		width: 100%;
-		border-top: solid silver 1px;
-		left: 0;   /* Keeps the toolbar fastened to the left */
-		bottom: 0; /* Keeps the toolbar fasted to the bottom */
-		position: fixed;
-	}
-	
-	#toolbar ul, #titlebar ul {
+	#titlebar ul {
 		margin:0;
         padding:0;
         width: 100%;
 	}
 	
-	#toolbar li {
-		display: inline;
-		float: left;
-		width: 20%;
-		height: 60px;
-		text-align: center;
-		padding: 20px 0;
-	}
-	
-	#toolbar li a {
-		color: aqua;
-		text-decoration: none;
-	}
-	
 	/* Hide tablet/desktop elements */
 	#content {display: none;}
 	#content_tablet {display: none;}
-	#features_tablet {display: none;}
 	#content_tablet_research{display: none;} 
 }
 
@@ -555,39 +535,5 @@ Term: 1211
 	
 	li {
 		list-style: none;
-	}
-	
-	.hidden {display: none;}
-	
-	#toolbar {
-		display: block;
-		font-size: 10px;
-		background: black;
-		height: 60px;
-		width: 100%;
-		border-top: solid silver 1px;
-		left: 0;   /* Keeps the toolbar fastened to the left */
-		bottom: 0; /* Keeps the toolbar fasted to the bottom */
-		position: fixed;
-	}
-	
-	#toolbar ul, #titlebar ul {
-		margin:0;
-        padding:0;
-        width: 100%;
-	}
-	
-	#toolbar li {
-		display: inline;
-		float: left;
-		width: 20%;
-		height: 60px;
-		text-align: center;
-		padding: 20px 0;
-	}
-	
-	#toolbar li a {
-		color: aqua;
-		text-decoration: none;
-	}
+	}	
 }

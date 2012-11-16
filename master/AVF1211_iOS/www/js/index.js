@@ -2,7 +2,7 @@
 // Name: William Saults
 // Term: 1211
 
-var subject = "ios";
+var subject = "panda";
 var lat = 0;
 var long = 0;
 var imageArray = new Array();
@@ -21,7 +21,7 @@ $(document).ready(function() {
 		lat = 27.781157;
 		long = -122.398720;
 		freebaseRequest("https://www.googleapis.com/freebase/v1/search?query=heroes&start=10&limit=20&indent=true");
-		twitterRequest("http://search.twitter.com/search.json?q="+subject+"&rpp=20&include_entities=true&result_type=recent&geocode="+lat+","+long+",1000mi");
+		twitterRequest("http://search.twitter.com/search.json?q="+subject+"&rpp=20&include_entities=true&lang=en&result_type=recent&geocode="+lat+","+long+",500mi");
 	}
 });
 
@@ -31,7 +31,10 @@ document.addEventListener("deviceready", deviceReady, false);
 function deviceReady() {	
     checkConnection();
     
-    setInterval(function(){ navigator.accelerometer.getCurrentAcceleration(onAccelerationSuccess, onError); }, 500);
+    console.log("device.platform " + device.platform);
+    if (device.platform === "iPhone" || device.platform === "iPad") {
+    	setInterval(function(){ navigator.accelerometer.getCurrentAcceleration(onAccelerationSuccess, onError); }, 500);
+    }
 }
 
 /* Generic Error Alert */
@@ -186,7 +189,7 @@ function twitterRequest(url) {
 					li.append(h4);
 					h4.text(v.from_user_name + ":");
 					li.append(p);
-					if(v.profile_image_url.length < 120) {
+					if(v.text.length < 120) {
 						li.append($('<img>', { 
 						    src : v.profile_image_url, 
 						    width : 50, 
